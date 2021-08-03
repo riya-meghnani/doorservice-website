@@ -318,8 +318,8 @@ header {
         padding: 20px 30px;
         font-family: "mouse-500", Arial, Helvetica, sans-serif;
         font-size: 15px; }
-        header .nav-port .nav-row nav ul li a {
-          color: #FFFFFF; }
+        /* header .nav-port .nav-row nav ul li a {
+          color: #FFFFFF; } */
       header .nav-port .nav-row .cart-ap {
         padding: 0px;
         background-color: #00aedd;
