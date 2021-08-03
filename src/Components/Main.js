@@ -3,10 +3,12 @@ import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-do
 import About from './About'
 import Blog from './Blog'
 import Contact_us from './Contact_us'
+import CustomerSignin from './CustomerSignin'
 import Gallery from './Gallery'
 import Home from './Home'
 import Login from './Login'
 import Professional from './Professional'
+import ProfessionalLogin from './ProfessionalLogin'
 import Service from './Service'
 
 export class Main extends Component {
@@ -89,13 +91,21 @@ export class Main extends Component {
         			<div class="col-md-12 nav-coll col-sm-12">
         				<nav>
         					<ul>
-        						<li><Link to='/'>Home</Link></li>
+        						<li><Link to='/' >Home</Link></li>
         						<li><Link to='/about_us'>About US</Link></li>
         						<li><Link to='/services'>Services</Link></li>
         						<li><Link to='/blog'>Blog</Link></li>
-        						<li><Link to='/contact_us'>Contact Us</Link></li>
-                                <li><Link to='/professionals'>Register as Professionals</Link></li>
-                                <li><Link to='/login'>Signup login as user</Link></li>
+        						<li><Link to='/contact_us'>Contact us</Link></li>
+                                <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" >Login as
+        </a>
+        
+        <ul className="dropdown-menu " >
+          <li><Link to='/customerlogin'> user</Link></li>
+          <li><Link to='/professionals'>professionals</Link></li>
+          
+        </ul>
+      </li>
         					</ul>
         				</nav>
         			</div>
@@ -118,220 +128,18 @@ export class Main extends Component {
         <Route path="/contact_us" exact component={Contact_us}></Route>
         <Route path="/about_us"exact  component={About}></Route>
         <Route path="/blog" exact component={Blog}></Route>
-        <Route path="/professionals" exact component={Professional}></Route>
-        <Route path="/login" exact component={Login}></Route>
-
+        <Route path="/professionals" exact component={ProfessionalLogin}></Route>
+        <Route path="/customerlogin" exact component={Login}></Route>
+        <Route path="/customersignin" exact component={CustomerSignin}></Route>
+        <Route path="/professionalsignin" exact component={Professional}></Route>
         
       </Switch>
    
   </div>
 
-     {/* <div class="slider">
-        <div class="owl-carousel ">
-            <div class="slider-img">
-                <div class="item">
-                    <div class="slider-img"><img src="assets/images/slider/slider-1.jpg" alt=""/></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="slider-captions">
-                                    <h1 class="slider-title">Feeling stress or anxious?</h1>
-                                    <p class="slider-text hidden-xs">We can help you conquer a wide range of psychological and emotional problems.</p>
-                                    <a href="#" class="btn btn-info hidden-xs">View All Therapies</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="slider-img"><img src="assets/images/slider/slider-2.jpg" alt=""/></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                            <div class="slider-captions">
-                                <h1 class="slider-title">It's time for better help.</h1>
-                                <p class="slider-text hidden-xs">We can help you conquer a wide range of psychological and emotional problems.</p>
-                                <a href="#" class="btn btn-info hidden-xs">Schedule A Visit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="slider-img"> <img src="assets/images/slider/slider-3.jpg" alt=""/></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                            <div class="slider-captions">
-                                <h1 class="slider-title">Meet our psychiatrists</h1>
-                                <p class="slider-text hidden-xs">Our psychiatrists are highly skilled to meet your unique needs.</p>
-                                <a href="#" class="btn btn-info hidden-xs">Meet Psychiatrists</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> */}
-
-   
-{/* <section class="why-shoos">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 wc-txt">
-                <h2>Why Choose Santol AC Service</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat massa leo, eget vehicula ante mollis eget. Mauris tellus velit, posuere vel lacus a, scelerisque vehicula tortor. Sed sollicitudin non metus nec interdum. Cras convallis erat magna, eu pulvinar justo dignissim ut. Nulla at nulla eu mi maximus finibus. Morbi at ipsum lectus. Pellentesque posuere nisl mauris, sit amet interdum diam tempor nec. Morbi dapibus euismod libero at tincidunt. </p>
-                
-                <div class="row wc-res">
-                    <div class="col-md-4">
-                        <div class="wc-cov">
-                            <i class="far fa-life-ring"></i> <br/>
-                            <b>Safty</b>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="wc-cov">
-                            <i class="fas fa-thermometer-quarter"></i> <br/>
-                            <b>Quality</b>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="wc-cov">
-                           <i class="far fa-check-square"></i> <br/>
-                            <b>Tradition</b>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-box">
-                    <div class="fb-title">
-                        <h3>Get Appointment</h3>
-                    </div>
-                    <div class="fb-det">
-                        <div class="fb-row">
-                            <input type="text" placeholder="Enter Full Name" class="form-control"/>
-                        </div>
-                         <div class="fb-row">
-                            <input type="text" placeholder="Enter Mobile Number" class="form-control"/>
-                        </div>
-                        <div class="fb-row">
-                            <input type="text" placeholder="Enter Email Address" class="form-control"/>
-                        </div>
-                         <div class="fb-row">
-                            <input type="text" placeholder="Enter City" class="form-control"/>
-                        </div>
-                        <div class="fb-row">
-                            <textarea row="4" placeholder="Enter Your Message" class="form-control"></textarea>
-                        </div>
-                        <div class="fb-row">
-                            <button class="btn btn-info">Book Appointment</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>    */}
-   
 
    
 
-
-  
-        
-        
-   
-
-      {/* <div class="customer-serv">
-    <div class="container">
-         
-        <div class="row session-title">
-            <h2>Happy Customers</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lobortis blandit.</p>
-        </div>
-         
-        <div class="row ro-clo">
-            <div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: scrollReveal" class="bghn col-sm-4">
-                <div class="shado-2 card-b">
-                    <p>We have intentionally decided not to include jQuery-based fallbacks for the transitions.
-                    to include jQuery-based</p>
-                </div>
-                <div class="cust-det row">
-                  <div class="col-sm-3 col-3 img-circl">
-                      <img alt="" src="assets/images/testimonial/member-01.jpg"/>
-                  </div>
-                   <div class="col-sm-5 col-5 an-mtc no-padding">
-                      <b>Sarath Ali</b>
-                      <p>(Sales Agent)</p>
-                  </div>
-                   <div class="col-sm-4 col-4 star-par">
-                      <ul class="stars">
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                      </ul>
-                  </div>
-                </div>
-            </div>
-             <div class="col-sm-4 bghn">
-                <div class="shado-2 card-b">
-                    <p>We have intentionally decided not to include jQuery-based fallbacks for the transitions.
-                    to include jQuery-based</p>
-                </div>
-                <div class="cust-det row">
-                  <div class="col-sm-3 col-3 img-circl">
-                      <img alt="" src="assets/images/testimonial/member-02.jpg"/>
-                  </div>
-                   <div class="col-sm-5 col-5 an-mtc no-padding">
-                      <b>Binny Aderson</b>
-                      <p>(Sales Agent)</p>
-                  </div>
-                   <div class="col-sm-4  col-4 star-par">
-                      <ul class="stars">
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                      </ul>
-                  </div>
-                </div>
-            </div>
-             <div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: scrollReveal" class="col-sm-4 bghn">
-                <div class="shado-2 card-b">
-                    <p>We have intentionally decided not to include jQuery-based fallbacks for the transitions.
-                    to include jQuery-based</p>
-                </div>
-                <div class="cust-det row">
-                  <div class="col-sm-3 col-3 img-circl">
-                      <img alt="" src="assets/images/testimonial/member-03.jpg"/>
-                  </div>
-                   <div class="col-sm-5 col-5 an-mtc no-padding">
-                      <b>Dweail Samluel</b>
-                      <p>(Sales Agent)</p>
-                  </div>
-                   <div class="col-sm-4 col-4 star-par">
-                      <ul class="stars">
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                      </ul>
-                  </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-</div>
-       */}
 
 
     <footer class="footer">
