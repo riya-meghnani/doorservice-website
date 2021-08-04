@@ -53,9 +53,10 @@ name, role, city, contactno, email, password
                               </div>
                               <div class="form-floating mb-3">
                               <label for="enterRole">Role</label>
-                              <select id="enterRole" name="Role" value={role} onChange={(e)=>{setValue(e)}}  >
-                                  <option >customer</option>
-                                  <option >vendor</option>
+                              <select class="form-control" id="enterRole" name="Role" value={role} onChange={(e)=>{setValue(e)}}  >
+                                  <option value="NONE" >select Role</option>
+                                  <option value="customer">customer</option>
+                                  <option value="vendor" >vendor</option>
                                 </select>  
                               
                               </div>

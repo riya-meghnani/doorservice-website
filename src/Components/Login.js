@@ -4,12 +4,14 @@ import {useEffect,useState} from 'react'
 import axios from 'axios'
 
 
-function Login() {
+function Login(props) {
     const [users,setUsers] = useState([])
     useEffect(()=>{
      axios.get('http://localhost:3000/login-users').then((res)=>{
          console.log(res.data.data)
+
          setUsers(res.data.data)
+
      })   
     },[])
     function Auth(){
@@ -23,6 +25,9 @@ function Login() {
         console.log(check);
         if(check==true){
             alert("you have successfully login")
+
+            
+            props.history.push("/Dashboard");
             
         }
         else{

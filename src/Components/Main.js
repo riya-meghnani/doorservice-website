@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-dom'
-import About from './About'
-import Blog from './Blog'
-import Contact_us from './Contact_us'
-import Customersignin from './Customersignin'
-
-import Gallery from './Gallery'
-import Home from './Home'
-import Login from './Login'
-
-import Service from './Service'
+import About from './About';
+import Blog from './Blog';
+import Contact_us from './Contact_us';
+import Customersignin from './Customersignin';
+import Dashboard from './Dashboard';
+import Gallery from './Gallery';
+import Home from './Home';
+import Login from './Login';
+import Service from './Service';
 
 export class Main extends Component {
     render() {
@@ -118,11 +117,12 @@ export class Main extends Component {
       <Switch>
           <Route path="/" exact component={Home}></Route>
         <Route path="/services"  exact component={Service}></Route>
-        <Route path="/contactus" exact component={Contactus}></Route>
+        <Route path="/contactus" exact component={Contact_us}></Route>
         <Route path="/about_us"exact  component={About}></Route>
         <Route path="/blog" exact component={Blog}></Route>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/customersignin" exact component={Customersignin}></Route>
+        <Route path="/Dashboard"  component={Dashboard}></Route>
         {/* <Route path="/professionalsignin" exact component={Professional}></Route> */}
         
       </Switch>
