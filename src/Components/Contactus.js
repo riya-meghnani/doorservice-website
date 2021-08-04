@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Contact_us extends Component {
+export class Contactus extends Component {
     render() {
         // console.log("hi")
         return (
@@ -93,4 +93,4 @@ export class Contact_us extends Component {
     
 }
 }
-export default Contact_us
+export default Contactus

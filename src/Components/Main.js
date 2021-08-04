@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-dom'
 import About from './About'
 import Blog from './Blog'
-import Contact_us from './Contact_us'
+import Contactus from './Contactus'
 import CustomerSignin from './CustomerSignin'
 import Gallery from './Gallery'
 import Home from './Home'
@@ -44,7 +44,7 @@ export class Main extends Component {
                 <div class="row logo-port-content">
 
                     <div class="col-sm-12 logo-box col-md-4">
-                        <img src="LogoFinal.png" alt=""/>
+                        <img  src="LogoFinal.png" alt=""/>
                         <a data-toggle="collapse" data-target="#nav-head" href="#nav-head" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
                     </div>
                     <div id="menu" class="col-sm-8 d-none d-md-block ">
@@ -95,7 +95,7 @@ export class Main extends Component {
         						<li><Link to='/about_us'>About US</Link></li>
         						<li><Link to='/services'>Services</Link></li>
         						<li><Link to='/blog'>Blog</Link></li>
-        						<li><Link to='/contact_us'>Contact us</Link></li>
+        						<li><Link to='/contactus'>Contact us</Link></li>
                                 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" >Login as
         </a>
@@ -125,7 +125,7 @@ export class Main extends Component {
       <Switch>
           <Route path="/" exact component={Home}></Route>
         <Route path="/services"  exact component={Service}></Route>
-        <Route path="/contact_us" exact component={Contact_us}></Route>
+        <Route path="/contactus" exact component={Contactus}></Route>
         <Route path="/about_us"exact  component={About}></Route>
         <Route path="/blog" exact component={Blog}></Route>
         <Route path="/professionals" exact component={ProfessionalLogin}></Route>
