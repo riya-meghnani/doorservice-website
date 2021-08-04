@@ -1,10 +1,40 @@
 import React, { Component } from 'react'
 import { Link,Switch,BrowserRouter as Router,Route } from 'react-router-dom'
+import {useEffect,useState} from 'react'
+import axios from 'axios'
 
-export class Login extends Component {
-    render() {
-        return (
-          <div class="container">
+
+function Login() {
+    const [users,setUsers] = useState([])
+    useEffect(()=>{
+     axios.get('http://localhost:3000/login-users').then((res)=>{
+         console.log(res.data.data)
+         setUsers(res.data.data)
+     })   
+    },[])
+    function Auth(){
+        var email=document.getElementById('inputEmail').value
+        var password=document.getElementById('inputPassword').value
+        // alert(email);
+        // alert(password);
+        var check=users.some((s)=>{
+            return s.email==email && s.password==password
+        })
+        console.log(check);
+        if(check==true){
+            alert("you have successfully login")
+            
+        }
+        else{
+            alert("please check email or password")
+        }
+        
+    
+    }
+
+    return (
+        <div>
+            <div class="container">
           <div class="row justify-content-center">
               <div class="col-lg-5">
                   <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -27,7 +57,7 @@ export class Login extends Component {
                               </div>
                               <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                   <a class="small" href="password.html">Forgot Password?</a>
-                                  <a class="btn btn-primary" href="index.html">Login</a>
+                                  <a class="btn btn-primary" onClick={Auth}>Login</a>
                               </div>
                           </form>
                       </div>
@@ -39,8 +69,9 @@ export class Login extends Component {
           </div>
       </div>  
           
-        )
-    }
+        </div>
+    )
 }
 
 export default Login
+

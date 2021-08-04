@@ -19,23 +19,24 @@ Client.connect((err,db)=>{
         console.log("database could not connected")
     }
 })
-// app.post('/create-customers',bodyParser.json,(req,res)=>{
-//     var StudentCollection=connection.db('doorservice').collection('customer');
-//     StudentCollection.insert(req.body,(err,result)=>{
-//         if(!err){
-//             res.send({status:"ok" ,data:"customer data is inserted"})
-//         }
-//         else{
-//             res.send({status:"failed",data:err})
-//         }
-//     })
-// })
-app.post('/create-vendors',bodyParser.json(),(req,res)=>{
-    console.log("this is app vendor")
-    var VendorCollection=connection.db('doorservice').collection('vendor');
+app.get('/login-users',(req,res)=>{
+    var VendorCollection=connection.db('doorservice').collection('user');
+    VendorCollection.find().toArray((err,docs)=>{
+        if(!err){
+            res.send({status:"ok" ,data:docs})
+        }
+        else{
+            
+            res.send({status:"failed",data:err})
+        }
+    })
+    })
+app.post('/create-users',bodyParser.json(),(req,res)=>{
+    
+    var VendorCollection=connection.db('doorservice').collection('user');
     VendorCollection.insert(req.body,(err,_result)=>{
         if(!err){
-            res.send({status:"ok" ,data:"vendor data is inserted"})
+            res.send({status:"ok" ,data:"user data is inserted"})
         }
         else{
             res.send({status:"failed",data:err})

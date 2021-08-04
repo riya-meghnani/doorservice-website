@@ -3,12 +3,12 @@ import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-do
 import About from './About'
 import Blog from './Blog'
 import Contact_us from './Contact_us'
-import CustomerSignin from './CustomerSignin'
+import Customersignin from './Customersignin'
+
 import Gallery from './Gallery'
 import Home from './Home'
 import Login from './Login'
-import Professional from './Professional'
-import ProfessionalLogin from './ProfessionalLogin'
+
 import Service from './Service'
 
 export class Main extends Component {
@@ -96,16 +96,9 @@ export class Main extends Component {
         						<li><Link to='/services'>Services</Link></li>
         						<li><Link to='/blog'>Blog</Link></li>
         						<li><Link to='/contact_us'>Contact us</Link></li>
-                                <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" >Login as
-        </a>
-        
-        <ul className="dropdown-menu " >
-          <li><Link to='/customerlogin'> user</Link></li>
-          <li><Link to='/professionals'>professionals</Link></li>
-          
-        </ul>
-      </li>
+                                <li><Link to='/login'>Login</Link></li>
+                               
+       
         					</ul>
         				</nav>
         			</div>
@@ -128,10 +121,9 @@ export class Main extends Component {
         <Route path="/contact_us" exact component={Contact_us}></Route>
         <Route path="/about_us"exact  component={About}></Route>
         <Route path="/blog" exact component={Blog}></Route>
-        <Route path="/professionals" exact component={ProfessionalLogin}></Route>
-        <Route path="/customerlogin" exact component={Login}></Route>
-        <Route path="/customersignin" exact component={CustomerSignin}></Route>
-        <Route path="/professionalsignin" exact component={Professional}></Route>
+        <Route path="/login" exact component={Login}></Route>
+        <Route path="/customersignin" exact component={Customersignin}></Route>
+        {/* <Route path="/professionalsignin" exact component={Professional}></Route> */}
         
       </Switch>
    

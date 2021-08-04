@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 export class Contact_us extends Component {
     render() {
-        // console.log("hi")
+       
         return (
+        
             <div>
-            
+             
             <div class="page-nav no-margin row">
             <div class="container">
                 <div class="row">
