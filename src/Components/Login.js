@@ -4,6 +4,7 @@ import {useEffect,useState} from 'react'
 import axios from 'axios'
 
 
+
 function Login(props) {
     const [users,setUsers] = useState([])
     useEffect(()=>{
@@ -19,6 +20,9 @@ function Login(props) {
         var password=document.getElementById('inputPassword').value
         // alert(email);
         // alert(password);
+        var authuser=users.filter((s)=>{return s.email==email && s.password==password});
+        var uid=authuser.map((s)=>{return s._id})
+        console.log(uid)
         var check=users.some((s)=>{
             return s.email==email && s.password==password
         })
@@ -27,7 +31,7 @@ function Login(props) {
             alert("you have successfully login")
 
             
-            props.history.push("/Dashboard");
+            props.history.push("/Dashboard/"+uid);
             
         }
         else{
@@ -61,7 +65,7 @@ function Login(props) {
                                   <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                               </div>
                               <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                  <a class="small" href="password.html">Forgot Password?</a>
+                                  <Link to='/forgot-password' class="btn-btn-primary"  >Forgot Password?</Link>
                                   <a class="btn btn-primary" onClick={Auth}>Login</a>
                               </div>
                           </form>

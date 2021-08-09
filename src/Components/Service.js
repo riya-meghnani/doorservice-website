@@ -26,7 +26,7 @@ export class Service extends Component {
                 <div class="col-md-4 col-sm-6">
                     <div class="single-key">
                         <i class="fas fa-hospital-alt"></i>
-                        <h5>Hair Cut</h5>
+                        <h5>Saloon</h5>
                         <p>High Performanc Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
                    <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
                     </div>

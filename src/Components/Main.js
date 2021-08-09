@@ -3,12 +3,13 @@ import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-do
 import About from './About';
 import Blog from './Blog';
 import Contact_us from './Contact_us';
-import Customersignin from './Customersignin';
+import CustomerSignin from './CustomerSignin';
 import Dashboard from './Dashboard';
 import Gallery from './Gallery';
 import Home from './Home';
 import Login from './Login';
 import Service from './Service';
+import Forgot from './Forgot';
 
 export class Main extends Component {
     render() {
@@ -44,7 +45,7 @@ export class Main extends Component {
 
                     <div class="col-sm-12 logo-box col-md-4">
                         <img  src="LogoFinal.png" alt=""/>
-                        <a data-toggle="collapse" data-target="#nav-head" href="#nav-head" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                        <a data-toggle="collapse"  ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
                     </div>
                     <div id="menu" class="col-sm-8 d-none d-md-block ">
                         <div class="row">
@@ -121,8 +122,9 @@ export class Main extends Component {
         <Route path="/about_us"exact  component={About}></Route>
         <Route path="/blog" exact component={Blog}></Route>
         <Route path="/login" exact component={Login}></Route>
-        <Route path="/customersignin" exact component={Customersignin}></Route>
-        <Route path="/Dashboard"  component={Dashboard}></Route>
+        <Route path="/customersignin" exact component={CustomerSignin}></Route>
+        <Route path="/Dashboard/:id"    component={Dashboard}></Route>
+        <Route path="/forgot-password"  exact component={Forgot}></Route>
         {/* <Route path="/professionalsignin" exact component={Professional}></Route> */}
         
       </Switch>
@@ -147,11 +149,11 @@ export class Main extends Component {
                 <div class="col-md-4 col-sm-12">
                     <h2>Useful Links</h2>
                     <ul class="list-unstyled link-list">
-                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
-                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                        <li><a ui-sref="gallery" href="#/gallery">Pricing</a><i class="fa fa-angle-right"></i></li>
-                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a >About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a >Portfolio</a><i class="fa fa-angle-right"></i></li>
+                        <li><a >Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                        <li><a >Pricing</a><i class="fa fa-angle-right"></i></li>
+                        <li><a >Contact us</a><i class="fa fa-angle-right"></i></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-12 map-img">
@@ -161,8 +163,8 @@ export class Main extends Component {
                        765th Boulevard, <br/>
                         Rochester, CA <br/>
                         Phone: +1 831 143 556 <br/>
-                        Email: <a href="mailto:info@bluedart.com" class="">info@bluedart.in</a><br/>
-                        Web: <a href="https://smarteyeapps.com/" class="">www.bluedart.in</a>
+                        Email: <a class="">info@bluedart.in</a><br/>
+                        Web: <a  class="">www.bluedart.in</a>
                     </address>
 
                 </div>

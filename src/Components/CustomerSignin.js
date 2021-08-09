@@ -31,6 +31,7 @@ name, role, city, contactno, email, password
     console.log(s);
     axios.post('http://localhost:3000/create-users', s).then((res)=>{
         console.log(res.data);
+        alert("you have successfully sign up..please login ")
     })
 
 }

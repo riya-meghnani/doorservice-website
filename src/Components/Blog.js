@@ -28,7 +28,7 @@ export class Blog extends Component {
                                     <h2>Why Primary treatment is important ?</h2>
                                     <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
                                     <p class="blog-desic">Lorem Ipsum, type lorem then press the shortcut. The default keyboard shortcut is the same keyboard shortcut is the </p>
-                                    <a href="blog_single.html">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <a >Read More <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ export class Blog extends Component {
                                     <h2>Why Primary treatment is important ?</h2>
                                     <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
                                     <p class="blog-desic">Lorem Ipsum, type lorem then press the shortcut. The default keyboard shortcut is the same keyboard shortcut is the </p>
-                                    <a href="blog_single.html">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <a >Read More <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ export class Blog extends Component {
                                     <h2>Why Primary treatment is important ?</h2>
                                     <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
                                     <p class="blog-desic">Lorem Ipsum, type lorem then press the shortcut. The default keyboard shortcut is the same keyboard shortcut is the </p>
-                                    <a href="blog_single.html">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <a >Read More <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ export class Blog extends Component {
                                     <h2>Why Primary treatment is important ?</h2>
                                     <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
                                     <p class="blog-desic">Lorem Ipsum, type lorem then press the shortcut. The default keyboard shortcut is the same keyboard shortcut is the </p>
-                                    <a href="blog_single.html">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <a >Read More <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

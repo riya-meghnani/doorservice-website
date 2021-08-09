@@ -30,7 +30,7 @@ export class Home extends Component {
                             <div class="slider-captions">
                                 <h1 class="slider-title">It's time for better help.</h1>
                                 <p class="slider-text hidden-xs">We can help you.</p>
-                                <a href="#" class="btn btn-info hidden-xs">Book now</a>
+                                <a  class="btn btn-info hidden-xs">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ export class Home extends Component {
                             <div class="slider-captions">
                                 <h1 class="slider-title">Meet our Professionals</h1>
                                 <p class="slider-text hidden-xs">They are highly skilled to meet your unique needs.</p>
-                                <a href="#" class="btn btn-info hidden-xs">Meet Them</a>
+                                <a  class="btn btn-info hidden-xs">Meet Them</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ export class Home extends Component {
     <div class="container">
         <div class="row">
             <div class="col-md-12 wc-txt">
-                <h2>Why Choose DoorService?</h2>
+                <h2 >Why Choose DoorService?</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat massa leo, eget vehicula ante mollis eget. Mauris tellus velit, posuere vel lacus a, scelerisque vehicula tortor. Sed sollicitudin non metus nec interdum. Cras convallis erat magna, eu pulvinar justo dignissim ut. Nulla at nulla eu mi maximus finibus. Morbi at ipsum lectus. Pellentesque posuere nisl mauris, sit amet interdum diam tempor nec. Morbi dapibus euismod libero at tincidunt. </p>
                 
                 <div class="row wc-res">
