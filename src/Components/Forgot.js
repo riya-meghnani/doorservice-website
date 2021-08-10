@@ -1,6 +1,6 @@
-import {React } from 'react'
-import {useState} from 'react'
-import {axios} from 'axios'
+import {React } from 'react';
+import {useState} from 'react';
+import axios from 'axios';
 
 function Forgot() {
     const [em,setEm] = useState("")
@@ -11,7 +11,7 @@ function Forgot() {
     }
     function Sendpassword(){
         alert(em)   
-        axios.post('http://localhost:3000//user-by-email',em).then((res)=>{
+        axios.post('http://localhost:3000/user-by-email',em).then((res)=>{
             console.log(res.data.data)
            alert("completed") 
     })
@@ -30,7 +30,7 @@ function Forgot() {
                                   <input class="form-control" id="inputEmail" type="email" name="Email" placeholder="name@example.com" value={em} onChange={(e)=>{setValue(e)}}/>
                                   
                               </div>
-                             <button type="submit" className=" btn-primary" onClick={Sendpassword}>Send Password</button>
+                             <button type="button" className=" btn-primary" onClick={Sendpassword}>Send Password</button>
                              
                             
                           </form>
