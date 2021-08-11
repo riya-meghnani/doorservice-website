@@ -7,14 +7,26 @@ import axios from 'axios'
 
 function Login(props) {
     const [users,setUsers] = useState([])
-    useEffect(()=>{
-     axios.get('http://localhost:3000/login-users').then((res)=>{
-         console.log(res.data.data)
 
-         setUsers(res.data.data)
 
-     })   
-    },[])
+    // useEffect(()=>{
+    //  axios.get('http://localhost:3000/login-users').then((res)=>{
+    //      console.log(res.data.data)
+    //      setUsers(res.data.data)
+    //  })   
+    // },[])
+
+
+    function Auth() {
+        alert("auth");
+        alert(email);
+        alert(password);
+            dispatch(checkLogin({email,password}));
+    
+    }
+
+
+
     function Auth(){
         var email=document.getElementById('inputEmail').value
         var password=document.getElementById('inputPassword').value
@@ -36,9 +48,7 @@ function Login(props) {
         }
         else{
             alert("please check email or password")
-        }
-        
-    
+        }            
     }
 
     return (
