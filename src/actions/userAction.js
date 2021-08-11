@@ -5,7 +5,8 @@ export function checkLogin(u){
         alert("in check login");
         dispatch({type:"LOADING_TRUE"});
 
-        axios.post("http://localhost:4000/check-login",u).then((res)=>{
+        axios.post
+        ('http://localhost:3000/login-users',u).then((res)=>{
             dispatch({type:"LOADING_FALSE"})
             alert(JSON.stringify(res.data));
             if(res.data.status=="ok")

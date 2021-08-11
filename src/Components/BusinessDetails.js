@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useState,useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function BusinessDetails(props) {
 
