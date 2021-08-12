@@ -41,9 +41,9 @@ app.post('/user-by-email',bodyParser.json(),(req,res)=>{
 
 app.post('/login-users',bodyParser.json(),(req,res)=>{
     var VendorCollection=connection.db('doorservice').collection('user');
-    VendorCollection.find({email:(req.body.email) , password:(req.body.password)}).toArray((err,docs)=>{
-        if(!err){
-            res.send({status:"ok" ,data:docs})
+    VendorCollection.find({email:(req.body.email) , password:(req.body.password)}).toArray((err,result)=>{
+        if(!err && result.length>0){
+            res.send({status:"ok" ,data:result})
             
         }
         else{

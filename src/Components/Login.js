@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { Link,Switch,BrowserRouter as Router,Route } from 'react-router-dom'
 import {useEffect,useState} from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch ,useSelector} from 'react-redux'
 import {checkLogin} from '../actions/userAction'
+
 
 
 
@@ -12,6 +13,7 @@ function Login(props) {
     const [email, setEmail] = useState("")
     const [password,setPassword]=useState("")
      const dispatch = useDispatch()
+     const user = useSelector(state => state.user)
     // useEffect(()=>{
     //  axios.get('http://localhost:3000/login-users').then((res)=>{
     //      console.log(res.data.data)
@@ -30,7 +32,10 @@ function Login(props) {
         alert(email);
         alert(password);
             dispatch(checkLogin({email,password}));
-            props.history.push("/Dashboard/"+uid);
+            // if(user){
+            //     props.history.push('/Dashboard/')
+            // }
+            
             
     
     }
