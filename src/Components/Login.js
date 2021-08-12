@@ -90,7 +90,7 @@ function Login(props) {
                               </div>
                               <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                   <Link to='/forgot-password' class="btn-btn-primary"  >Forgot Password?</Link>
-                                  <a class="btn btn-primary" onClick={Auth}>Login</a>
+                                  <Link class="btn btn-primary" to="/Dashboard" onClick={Auth}>Login</Link>
                               </div>
                           </form>
                       </div>

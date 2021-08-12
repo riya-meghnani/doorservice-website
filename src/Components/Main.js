@@ -123,7 +123,7 @@ export class Main extends Component {
         <Route path="/blog" exact component={Blog}></Route>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/customersignin" exact component={CustomerSignin}></Route>
-        <Route path="/Dashboard/:id"    component={Dashboard}></Route>
+        <Route path="/Dashboard"    component={Dashboard}></Route>
         <Route path="/forgot-password"  exact component={Forgot}></Route>
         {/* <Route path="/professionalsignin" exact component={Professional}></Route> */}
         
