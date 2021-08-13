@@ -2,36 +2,37 @@
 import axios from 'axios';
 import React from 'react'
 import { useState,useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 
 function BusinessDetails(props) {
-
-    var logoFile;
-    var Id=props.match.params.id;
-    const state = useSelector(state => state.user)
-    console.log(Id)
     const [name,setname] = useState("")
     const [service, setService] = useState("")
+    const [address,setAddress] = useState("")
+    const [phone,setPhone] = useState("")
+    var logoFile;
+    
+    const Id = useSelector(state => state.user._id)
+     
+    
+    
+
     const [uploadPercentage, setuploadPercentage] = useState("")
-    useEffect(() => {
-        axios.get('http://localhost:3000/user-by-id?_id='+Id).then((res)=>{
-            console.log(res.data.data)
-           
-        
-        })
-        
-        
-    }, [])
+   
     
     
     function setValue(e){
+        e.target.name="Name" && setname(e.target.value)
         e.target.name=="Service" && setService(e.target.value)
+        e.target.name="Address" && setAddress(e.target.value)
+        e.target.name="Phone" && setPhone(e.target.value)
     }
     function sendDetails(){
 
         var formData = new FormData();
         formData.append("_id", Id );
         formData.append("business_name", name)
+        formData.append("address",address)
+        formData.append("phone no",phone)
         formData.append("logo", logoFile);
 
 
@@ -79,8 +80,16 @@ function BusinessDetails(props) {
         <div>
             <form>
                 <div class="form-group">
+                    <label htmlFor="Inputname">Business Name</label>
+                    <input type="name" class="form-control"  name="Name" value={name} onChange={(e)=>{setValue(e)}}  />                    
+                </div>
+                <div class="form-group">
+                    <label htmlFor="Inputname">Address</label>
+                    <input type="name" class="form-control"   name="Address" value={address} onChange={(e)=>{setValue(e)}} />                    
+                </div>
+                <div class="form-group">
                     <label htmlFor="Inputname">Name</label>
-                    <input type="name" class="form-control" id="Inputname"   />                    
+                    <input type="name" class="form-control"  name="Phone" value={phone} onChange={(e)=>{setValue(e)}}  />                    
                 </div>
                 <div class="form-group">
                     <label htmlFor="Logo">Upload Logo</label>

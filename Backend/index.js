@@ -55,9 +55,9 @@ app.post('/login-users',bodyParser.json(),(req,res)=>{
 app.post('/create-users',bodyParser.json(),(req,res)=>{
     
     var VendorCollection=connection.db('doorservice').collection('user');
-    VendorCollection.insert(req.body,(err,_result)=>{
+    VendorCollection.insert(req.body,(err,result)=>{
         if(!err){
-            res.send({status:"ok" ,data:"user data is inserted"})
+            res.send({status:"ok" ,result:"user data is inserted"})
         }
         else{
             res.send({status:"failed",data:err})

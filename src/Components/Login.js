@@ -20,8 +20,7 @@ function Login(props) {
     //      setUsers(res.data.data)
     //  })   
     // },[])
-    var authuser=users.filter((s)=>{return s.email==email && s.password==password});
-        var uid=authuser.map((s)=>{return s._id})
+    
     function setValue(e){
         e.target.name==="Email" && setEmail(e.target.value);
         e.target.name==="Password" && setPassword(e.target.value);
@@ -32,12 +31,7 @@ function Login(props) {
         alert(email);
         alert(password);
             dispatch(checkLogin({email,password}));
-            // if(user){
-            //     props.history.push('/Dashboard/')
-            // }
             
-            
-    
     }
     
 
@@ -71,7 +65,7 @@ function Login(props) {
           <div class="row justify-content-center">
               <div class="col-lg-5">
                   <div class="card shadow-lg border-0 rounded-lg mt-5">
-                      <div class="card-header"><h3 class="text-center font-weight-light my-4">Login as Customer</h3></div>
+                      <div class="card-header"><h3 class="text-center font-weight-light my-4">Login </h3></div>
                       <div class="card-body">
                           <form>
                               <div class="form-floating mb-3">
@@ -90,7 +84,7 @@ function Login(props) {
                               </div>
                               <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                   <Link to='/forgot-password' class="btn-btn-primary"  >Forgot Password?</Link>
-                                  <Link class="btn btn-primary" to="/Dashboard" onClick={Auth}>Login</Link>
+                                  <Link class="btn btn-primary" to="/Dashboard"  onClick={Auth}>Login</Link>
                               </div>
                           </form>
                       </div>
