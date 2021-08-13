@@ -1,13 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import BusinessDetails from './BusinessDetails'
 import CustomerOrders from './CustomerOrders'
 import {BrowserRouter as Router,Link,Switch,Route,NavLink} from 'react-router-dom'
 import './Dashboard.css'
 import { useSelector } from 'react-redux'
-function Dashboard() {
+function Dashboard(props) {
     
-    const role = useSelector(state => state.user.role)
-    alert(role)
+    const user = useSelector(state => state.user)
+    // alert("10")
+    // alert(JSON.stringify(user))
+    // alert("12")
+    useEffect(() => {
+        if(!user)
+        {
+            props.history.push("/login");
+        }
+    }, [user]);
     
     return (
         
@@ -18,29 +26,29 @@ function Dashboard() {
                         {/* <li className="list-group-item"><Link to ={"/Dashboard/BusinessDetails"} >Set Business Details</Link></li> */}
                         
                           <NavLink className="nav-link dip subheading1" to="/Dashboard/BusinessDetails">
-                                <div className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></div>
+                                <span className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></span>
                                 Business Details
                             </NavLink>
                             
                         {/* <li className="list-group-item"><Link to="/Dashboard/CustomerOrders">Customer orders</Link></li> */}
                         
                           <NavLink className="nav-link dip subheading1" to="/Dashboard/CustomerOrders">
-                                <div className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></div>
+                                <span className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></span>
                                 Customer Orders
                             </NavLink> 
                             
                            
                               <NavLink className="nav-link dip subheading1" to="/Dashboard/ViewBusineesDetails">
-                                <div className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></div>
+                                <span className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></span>
                                 View Business Details
                             </NavLink>
                             
                               <NavLink className="nav-link dip subheading1" to="/Dashboard/ViewCustomerRequests">
-                                <div className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></div>
+                                <span className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></span>
                                View Customer Requests
                             </NavLink>
                              <NavLink className="nav-link dip subheading1" to="/Dashboard/Services">
-                                <div className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></div>
+                                <span className="sb-nav-link-icon iconspace"><i class="fas fa-table move1"></i></span>
                                Request your service
                             </NavLink>
                             

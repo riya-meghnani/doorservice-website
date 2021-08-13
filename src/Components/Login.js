@@ -14,12 +14,12 @@ function Login(props) {
     const [password,setPassword]=useState("")
      const dispatch = useDispatch()
      const user = useSelector(state => state.user)
-    // useEffect(()=>{
-    //  axios.get('http://localhost:3000/login-users').then((res)=>{
-    //      console.log(res.data.data)
-    //      setUsers(res.data.data)
-    //  })   
-    // },[])
+    useEffect(()=>{
+        if(user)
+        {
+            props.history.push("/Dashboard");
+        }
+    },[user])
     
     function setValue(e){
         e.target.name==="Email" && setEmail(e.target.value);
@@ -31,7 +31,7 @@ function Login(props) {
         alert(email);
         alert(password);
             dispatch(checkLogin({email,password}));
-            
+           
     }
     
 
@@ -84,7 +84,7 @@ function Login(props) {
                               </div>
                               <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                   <Link to='/forgot-password' class="btn-btn-primary"  >Forgot Password?</Link>
-                                  <Link class="btn btn-primary" to="/Dashboard"  onClick={Auth}>Login</Link>
+                                  <Link class="btn btn-primary"  onClick={Auth}>Login</Link>
                               </div>
                           </form>
                       </div>
