@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
-import {Button} from 'react-bootstrap'
-import Booknow from './Booknow'
+import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 
-
-export class Service extends Component {
-    render() {
-        return (
+export default function Service(props) {
+    const user = useSelector(state => state.user)
+    function Booknow(){
+        
+        
+        if(!user){
+            props.history.push('/login')
+        }
+        else{
+            props.history.push('/Booknow/:cat_name')
+        }
+    }
+    return (
+        <div>
             <div>
                 <div class="page-nav no-margin row">
                    <div class="container">
@@ -28,7 +37,7 @@ export class Service extends Component {
                         <i class="fas fa-hospital-alt"></i>
                         <h5>Saloon</h5>
                         <p>High Performanc Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
-                   <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
+                   <Link className="btn btn-success"exact to='/Booknow/Saloon'  onClick={Booknow}>Book Now</Link>
                     </div>
                 </div>
 
@@ -37,7 +46,7 @@ export class Service extends Component {
                         <i class="fas fa-user-md"></i>
                         <h5>Car Service</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ipsum dolor sit amet, consectetur ut erat nec leo lobortis blandit.</p><br/>
-                    <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
+                    <Link className="btn btn-success" exact to='/Booknow/Car Service' onClick={Booknow}>Book Now</Link>
                     </div>
                 </div>
 
@@ -46,7 +55,7 @@ export class Service extends Component {
                         <i class="fas fa-briefcase-medical"></i>
                         <h5>Bike Service</h5>
                         <p> Consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
-                    <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
+                    <Link className="btn btn-success" exact to='/Booknow/Bike Service'onClick={Booknow}>Book Now</Link>
                     </div>
                 </div>
 
@@ -55,7 +64,7 @@ export class Service extends Component {
                         <i class="fas fa-capsules"></i>
                         <h5>Plumber</h5>
                         <p> Donec ut erat nec leo Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
-                   <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
+                   <Link className="btn btn-success" exact to='/Booknow/Plumber' onClick={Booknow}>Book Now</Link>
                     </div>
                 </div>
 
@@ -64,7 +73,7 @@ export class Service extends Component {
                         <i class="fas fa-prescription-bottle-alt"></i>
                         <h5>Electrician</h5>
                         <p>Adipiscing elit Lorem ipsum dolor sit amet, sit amet, consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
-                <Button variant="btn btn-success" onClick={Booknow}>Book Now</Button>
+                <Link className="btn btn-success" exact to='/Booknow/Electrician' onClick={Booknow}>Book Now</Link>
                     </div>
                 </div>
 
@@ -77,7 +86,7 @@ export class Service extends Component {
                         
                      
                         <p>Powerful Automation Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p><br/>
-                    <Link to='./Booknow'><Button variant="btn btn-success" >Book Now</Button></Link>
+                    <Link className="btn btn-success"  exact to='/Booknow/Laundary' onClick={Booknow} >Book Now</Link>
                     
                     </div>
                 </div>
@@ -92,8 +101,6 @@ export class Service extends Component {
 
     </section>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default Service

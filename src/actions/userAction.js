@@ -12,6 +12,7 @@ export function checkLogin(u){
             if(res.data.status=="ok")
             {
                 dispatch({type:"LOGIN_USER", payload:res.data.data[0]})
+                
             }
             else{
                 alert("credential are not correct");

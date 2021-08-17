@@ -10,9 +10,18 @@ import Home from './Home';
 import Login from './Login';
 import Service from './Service';
 import Forgot from './Forgot';
+import { useSelector,useDispatch } from 'react-redux';
+import LOGOUT_USER from '..'
 
-export class Main extends Component {
-    render() {
+
+export default function Main() {
+    const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
+  function logout() {
+    dispatch({ type: 'LOGOUT_USER' });
+    alert('logged out');
+  }
+        
         return (
             <div>
                   <header>
@@ -96,8 +105,8 @@ export class Main extends Component {
         						<li><Link to='/services'>Services</Link></li>
         						<li><Link to='/blog'>Blog</Link></li>
         						<li><Link to='/contact_us'>Contact us</Link></li>
-                                <li><Link to='/login'>Login</Link></li>
-                               
+                                {!user && <li ><Link to='/Login'>Login</Link></li>}  
+                                {user && <li><Link to='/login' onClick={logout} >Logout</Link></li>   }
        
         					</ul>
         				</nav>
@@ -189,7 +198,6 @@ export class Main extends Component {
         </div>
             </div>
         )
-    }
+    
 }
 
-export default Main

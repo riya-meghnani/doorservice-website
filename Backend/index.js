@@ -5,6 +5,8 @@ var MongoClient=require('mongodb').MongoClient
 var ObjectId=require('mongodb').ObjectId
 var upload = require('./multerConfig');
 var app=express();
+var nodemailer = require('nodemailer');
+const e = require('express')
 app.use(cors());
 var Client=new MongoClient(' mongodb+srv://doorservice:doorservice@cluster0.kx8vb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true});
 var connection;
@@ -23,14 +25,21 @@ Client.connect((err,db)=>{
 
 app.post('/user-by-email',bodyParser.json(),(req,res)=>{
     console.log("email check");
+    console.log(req.body.em)
     var VendorCollection=connection.db('doorservice').collection('user');
-    console.log("var email check three"+ req.body)
-    VendorCollection.find({email:(req.body)}).toArray((err,result)=>{
+    console.log("var email check three"+ req.body.em)
+    VendorCollection.find({email:(req.body.em)}).toArray((err,result)=>{
         console.log("updated student two")
-        if(!err){
-
-            res.send({status:"ok" ,data:"Data is updated"})
+        if(!err && result.length>0){
+            console.log(result);
+            res.send({status:"ok" ,data:result})
             console.log("email is match")
+        var n=result.map((e)=>{return e.name})
+        var i=result.map ((e)=>{return e.password})
+            sendMail("doorservice283@gmail.com", "ydcsugpnosqdlppe", req.body.em, "Welcome to Doorservice", ` your doorservice account  password is  `+i ) 
+                
+            
+
         }
         else{
             res.send({status:"failed",data:err})
@@ -78,26 +87,36 @@ app.get('/user-by-id',(req,res)=>{
         }
     })
     })
+    app.post('list-user-by-category',bodyParser.json(),(req,res)=>{
+
+        var VendorCollection=connection.db('doorservice').collection('user');
+        VendorCollection.find({service_title:(req.body)}).toArray((err,docs)=>{
+            console.log(req.body)
+            if(!err && docs.length>0){
+                console.log("in get student by list")
+                res.send({status:"ok" ,data:docs})
+            }
+            else{
+                
+                res.send({status:"failed",data:"data is not found"})
+            }
+        })
+        })
     
    
-// app.post('/update-user',bodyParser.json(),(req,res)=>{
-//     console.log("updated student");
-//     var VendorCollection=connection.db('doorservice').collection('user');
-//     console.log("updated student three" )
-//     console.log(req.body);
-//     VendorCollection.updateOne({_id:ObjectId(req.body._id)},{$set:{service:req.body.service}},{upsert:true},(err,result)=>{
-//         console.log("updated student two")
-//         if(!err){
-
-//             res.send({status:"ok" ,data:"Data is updated"})
-//             console.log("data is updated")
-//         }
-//         else{
-//             res.send({status:"failed",data:err})
-//         }
-//     })
-    
-// })
+    app.post ('/add-services', bodyParser.json(),(req,res)=>{
+        var studentCollection =connection.db('doorservice').collection('user');     
+        
+                studentCollection.update({_id:ObjectId(req.body._id)},{$push:{vendor_services:req.body.service_details}},(err,result)=>{
+                if(!err)
+                {
+                res.send({status:"ok",data:"Service  Details added succesfully"});
+                }
+                else{
+                res.send({status:"failed",data:err});
+                }
+                })
+    });
 
 app.post('/update-user', (req,res)=>{
     
@@ -120,7 +139,7 @@ app.post('/update-user', (req,res)=>{
             //     certificates:req.files.certificates.map(c=>c.filename)
             // }
 
-            studentCollection.update({_id:ObjectId(req.body._id)},{$set:{logo:req.files.logo[0].filename, business_name:req.body.business_name}},(err,result)=>{
+            studentCollection.update({_id:ObjectId(req.body._id)},{$set:{logo:req.files.logo[0].filename, business_name:req.body.business_name,Business_Address:req.body.address,Business_contactno:req.body.phone }},(err,result)=>{
                 if(!err)
                 {
 
@@ -134,6 +153,44 @@ app.post('/update-user', (req,res)=>{
         }
     });
 })
+function sendMail(from, appPassword, to, subject,  htmlmsg)
+{
+    let transporter=nodemailer.createTransport(
+        {
+            host:"smtp.gmail.com",
+            port:587,
+            secure:false,
+            auth:
+            {
+             //  user:"weforwomen01@gmail.com",
+             //  pass:""
+             user:from,
+              pass:appPassword
+              
+    
+            }
+        }
+      );
+    let mailOptions=
+    {
+       from:from ,
+       to:to,
+       subject:subject,
+       html:htmlmsg
+    };
+    transporter.sendMail(mailOptions ,function(error,info)
+    {
+      if(error)
+      {
+        console.log(error);
+      }
+      else
+      {
+        console.log('Email sent:'+info.response);
+      }
+    });
+}
+
 
 
 

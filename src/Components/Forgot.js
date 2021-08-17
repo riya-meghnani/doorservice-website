@@ -10,8 +10,11 @@ function Forgot() {
         
     }
     function Sendpassword(){
-        alert(em)   
-        axios.post('http://localhost:3000/user-by-email',em).then((res)=>{
+        alert(em)  
+       var  s={
+            em
+        } 
+        axios.post('http://localhost:3000/user-by-email',s).then((res)=>{
             console.log(res.data.data)
            alert("completed") 
     })
